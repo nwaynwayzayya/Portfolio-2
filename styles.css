@@ -103,7 +103,156 @@ nav a:hover {
     transition: all 0.3s ease;
 }
 
+.hamburger.active span:nth-child(1) {
+    transform: rotate(45deg) translate(5px, 5px);
+}
+
+.hamburger.active span:nth-child(2) {
+    opacity: 0;
+}
+
+.hamburger.active span:nth-child(3) {
+    transform: rotate(-45deg) translate(5px, -5px);
+}
+
+.mobile-nav {
+    display: flex;
+    flex-direction: column;
+    background-color: #a17a37;
+    position: fixed;
+    top: 0;
+    right: -100%;
+    width: 70%;
+    height: 100vh;
+    padding: 100px 30px;
+    text-align: right;
+    z-index: 999;
+    backdrop-filter: blur(10px);
+    transition: right 0.5s ease;
+}
+
+.mobile.active {
+    right: 0;
+}
+
+.mobile-nav a {
+    padding: 15px 0;
+    color: white;
+    text-decoration: none;
+    font-size: 20px;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+.mobile-nav a:hover {
+    color: #713419;
+    transform: translateX(-10px);
+}
+
+/* Hero section */
+.hero {
+    min-height: 100vh;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-around;
+    padding: 100px 5% 50px;
+    position: relative;
+}
+
+.hero-text {
+    max-width: 600px;
+    z-index: 2;
+}
+
+.hero-text h1 {
+    font-size: clamp(36px, 5vw, 60px);
+    margin-bottom: 15px;
+    line-height: 1.2;
+    animation: fadeInUp 1s ease;
+}
+
+.hero-text h1 span {
+    font-family: 'Pacifico', cursive;
+    color: #713419;
+    display: inline-block;
+    animation: rubberBand 1s ease;
+}
+
+.hero-text h2 {
+    font-size: clamp(24px, 3vw, 40px);
+    font-weight: 800;
+    color: #713419;
+    margin-bottom: 25px;
+    animation: fadeInUp 1s ease 0.2s forwards;
+    opacity: 0;
+}
+
+.hero-text p {
+    line-height: 1.8;
+    margin-bottom: 30px;
+    font-size: 18px;
+    color: #ccc;
+    animation: fadeInUp 1s ease 0.4s forwards;
+    opacity: 0;
+}
+
+.social-icons {
+    display: flex;
+    gap: 20px;
+    margin: 25px 0;
+    animation: fadeInUp 1s ease 0.6s forwards;
+    opacity: 0;
+}
+
+.social-icons a {
+    color: #fff;
+    font-size: 24px;
+    transition: all 0.3s ease;
+    display: inline-block;
+}
+
+.social-icons a:hover {
+    color: #713419;
+    transform: translateY(-5px) scale(1.2);
+}
+
 .hero svg {
     width: 30px;
     height: 30px;
+    fill: #fff;
+}
+
+.buttons {
+    display: flex;
+    gap: 20px;
+    margin-top: 30px;
+    animation: fadeInUp 1s ease 0.8s forwards;
+    opacity: 0;
+}
+
+.buttons a {
+    padding: 15px 35px;
+    background: #713419;
+    border-radius: 10px;
+    font-weight: bold;
+    color: #fff;
+    text-decoration: none;
+    box-shadow: 0 8px 20px rgba(113, 52, 25, 0.5);
+    transition: all 0.3s ease;
+    border: 2px solid transparent;
+}
+
+.buttons a:first-child {
+    background: #a17a37;
+    border: 2px solid #713419;
+}
+
+.buttons a:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(113, 52, 25, 0.5);
+}
+
+.buttons a:first-child:hover {
+    background: #a17a37;
 }
