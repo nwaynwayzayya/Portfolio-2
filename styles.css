@@ -46,7 +46,7 @@ header .logo {
 }
 
 header .logo:hover {
-    transform: rotate(15def) scale(1.1);
+    transform: rotate(15deg) scale(1.1);
     box-shadow: 0 8px 20px rgba(113, 52, 25, 0.5);
 }
 
@@ -78,9 +78,7 @@ nav a:hover {
 }
 
 .contact-btn:hover {
-    color: #713319a1;
-    background: #E0C4A0;
-    border-color: #713419;
+    color: #fff;
     transform: translateY(-3px);
     box-shadow: 0 8px 20px rgba(113, 52, 25, 0.5);
 }
@@ -92,6 +90,7 @@ nav a:hover {
     cursor: pointer;
     z-index: 1001;
     padding: 10px;
+    display: none;
 }
 
 .hamburger span {
@@ -118,11 +117,11 @@ nav a:hover {
 .mobile-nav {
     display: flex;
     flex-direction: column;
-    background-color: #a17a37;
+    background-color: #713419;
     position: fixed;
     top: 0;
     right: -100%;
-    width: 70%;
+    width: 50%;
     height: 100vh;
     padding: 100px 30px;
     text-align: right;
@@ -131,7 +130,7 @@ nav a:hover {
     transition: right 0.5s ease;
 }
 
-.mobile.active {
+.mobile-nav.active {
     right: 0;
 }
 
@@ -145,7 +144,7 @@ nav a:hover {
 }
 
 .mobile-nav a:hover {
-    color: #713419;
+    color: #b66846;
     transform: translateX(-10px);
 }
 
@@ -192,7 +191,7 @@ nav a:hover {
     line-height: 1.8;
     margin-bottom: 30px;
     font-size: 18px;
-    color: #ccc;
+    color: #fff;
     animation: fadeInUp 1s ease 0.4s forwards;
     opacity: 0;
 }
@@ -208,12 +207,12 @@ nav a:hover {
 .social-icons a {
     color: #fff;
     font-size: 24px;
-    transition: all 0.3s ease;
+    transition: all 1s ease;
     display: inline-block;
 }
 
-.social-icons a:hover {
-    color: #713419;
+.social-icons a svg:hover {
+    fill: #713419;
     transform: translateY(-5px) scale(1.2);
 }
 
@@ -244,8 +243,7 @@ nav a:hover {
 }
 
 .buttons a:first-child {
-    background: #a17a37;
-    border: 2px solid #713419;
+    background: #c7994a;
 }
 
 .buttons a:hover {
@@ -255,4 +253,176 @@ nav a:hover {
 
 .buttons a:first-child:hover {
     background: #a17a37;
+}
+
+
+
+/* Hero image container */
+.hero-image-container {
+    position: relative; 
+    z-index: 2;
+    animation: fadeInRight 1s ease;
+}
+
+.hero-image {
+    width: 500px;
+    max-width: 100%;
+    border-radius: 50%;
+    box-shadow: 0 8px 20px rgba(113, 52, 25, 0.5);
+    transition: all 0.5s ease;
+}
+
+.hero-image:hover {
+    transform: scale(1.03);
+    box-shadow: 0 15px 30px rgba(113, 52, 25, 0.5);
+}
+
+
+/* Keyframes  for animations*/
+@keyframes float {
+    0% {
+        transform: translateY(0) rotate(0deg);
+    }
+    50% {
+        transform: translateY(-50px) rotate(180deg);
+    }
+    100% {
+        transfrom: translateY(0) rotate(360deg);
+    }
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transfrm: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeInRight {
+    from {
+        opacity: 0;
+        transform: translateX(50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes rubberBand {
+    from {
+        transform: scale3d(1, 1, 1);
+    }
+    30% {
+        transfm: scale3d(1.25, 0.75, 1);
+    }
+    40% {
+        transform: scale3d(0.75, 1.25, 1);
+    }
+    50% {
+        transform: scale3d(1.15, 0.85, 1);
+    }
+    65% {
+        transform: scale3d(0.95, 1.05, 1);
+    }
+    75% {
+        transform: scale3d(1.05, 0.95, 1);
+    }
+    to {
+        transfor: scale3d(1, 1, 1);
+    }
+}
+
+
+/* For responsiveness -- for different screen types */
+
+/* For tablet screen size */
+@media (max-width: 992px) {
+    .hero {
+        padding-top: 120px;
+        text-align: center;
+        justify-content: center;
+    }
+
+    .hero-text {
+        margin-bottom: 50px;
+    }
+
+    .social-icons, 
+    .buttons {
+        justify-content: center;
+    }
+
+    .hero-image {
+        width: 400px;
+    }
+}
+
+/* For mobile screen size */
+@media (max-width: 768px) {
+    .header {
+        padding: 20px;
+    }
+
+    nav {
+        display: none;
+    }
+
+    .hamburger {
+        display: flex;
+    }
+
+    .hero {
+        padding: 100px 20px 50px;
+    }
+
+    .hero-text {
+        margin-bottom: 40px;
+    }
+
+    .hero-image {
+        width: 350px;
+    }
+
+    .buttons {
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    .buttons a {
+        width: 100%;
+    }
+}
+
+
+/* For small mobile screen size */
+@media (max-width: 480px) {
+    .mobile-nav {
+        width: 80%;
+    }
+
+    .logo {
+        font-size: 24px;
+        padding: 8px 16px;
+    }
+
+    .hero-text h1 {
+        font-size: 32px;
+    }
+
+    .hero-text h2 {
+         font-size: 24px;
+    }
+
+    .hero-text p {
+        font-size: 16px;
+    }
+
+    .hero-image {
+        width: 300px;
+    }
 }

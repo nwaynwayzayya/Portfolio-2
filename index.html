@@ -29,7 +29,7 @@
         </nav>
 
         <!-- Hamburger drawer -->
-        <div class="hamburger">
+        <div class="hamburger" onclick="toggleMobileNav()">
             <span></span>
             <span></span>
             <span></span>
@@ -37,11 +37,11 @@
      </header>
 
      <div class="mobile-nav" id="mobileNav">
-        <a href="#">Home</a>
-        <a href="#">About</a>
-        <a href="#">Service</a>
-        <a href="#">Projects</a>
-        <a href="#">Contact</a>
+        <a href="#" onclick="toggleMobileNav()">Home</a>
+        <a href="#" onclick="toggleMobileNav()">About</a>
+        <a href="#" onclick="toggleMobileNav()">Service</a>
+        <a href="#" onclick="toggleMobileNav()">Projects</a>
+        <a href="#" onclick="toggleMobileNav()">Contact</a>
      </div>
 
      <!-- Hero section -->
@@ -80,8 +80,38 @@
 
         <!-- Image section -->
          <div class="hero-image-container">
-            <img src="images/ai-generated-9191901_1280.jpg" alt="">
+            <img src="images/ai-generated-9191901_1280.jpg" alt="" class="hero-image">
          </div>
      </section>
+
+     <!-- Mobile navigation toggle -->
+      <script>
+
+        function toggleMobileNav() {
+            const hamburger = document.querySelector('.hamburger');
+            const mobileNav = document.getElementById('mobileNav');
+            hamburger.classList.toggle('active');
+            mobileNav.classList.toggle('active');
+
+            // Toggle body overflow to prevent scrolling when menu is open
+            if (mobileNav.classList.contains('active')) {
+                document.body.style.overflow = 'hidden';
+            } else {
+                document.body.style.overflow = '';
+            }
+        }
+
+        // Close movile menu when clicking outside 
+        document.addEventListener('click', function(event) {
+            const mobileNav = document.getElementById('mobileNav');
+            const hamburger = document.querySelector('.hamburger');
+
+            if (mobileNav.classList.contains('active')) {
+                if (!mobileNav.contains(event.target) && !hamburger.contains(event.target)) {
+                toggleMobileNav();
+                }
+            }
+        });
+      </script>
 </body>
 </html>
